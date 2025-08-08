@@ -5,6 +5,8 @@ import {
 } from "@tanstack/react-query";
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
+import SidebarNotes from "../@sidebar/page";
+import css from "./FilterPage.module.css";
 
 export default async function FilterPage({
   params,
@@ -23,7 +25,14 @@ export default async function FilterPage({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <NotesClient tag={tag} />
+      <div className={css.layout}>
+        <aside className={css.sidebar}>
+          <SidebarNotes />
+        </aside>
+        <main className={css.main}>
+          <NotesClient tag={tag} />
+        </main>
+      </div>
     </HydrationBoundary>
   );
 }

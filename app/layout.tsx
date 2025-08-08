@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   description: "Manage your notes efficiently",
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
