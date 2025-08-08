@@ -28,12 +28,13 @@ export async function fetchNotes({
   search?: string;
   tag?: string;
 }): Promise<FetchNotesResponse> {
-  const params: any = { page };
+  const params: Record<string, string | number> = { page };
 
   if (search) {
     params.search = search;
   }
 
+  // Только если тег не "All" и не пустой, добавляем его к параметрам
   if (tag && tag !== "All") {
     params.tag = tag;
   }
