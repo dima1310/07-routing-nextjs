@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint": "next lint"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.84.1",
@@ -24,8 +23,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/react-paginate": "^7.1.4",
-    "@types/yup": "^0.29.14",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "typescript": "^5"

@@ -1,11 +1,7 @@
-// Типы для нотаток
-
-// Тип для тегів
 export type NoteTag = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
 
-// Інтерфейс для нотатки
 export interface Note {
-  id: string; // Унікальний ID — строка
+  id: string;
   title: string;
   content: string;
   createdAt: string;
@@ -18,17 +14,6 @@ export interface NotesResponse {
   totalPages: number;
 }
 
-export interface UpdateNoteData {
-  title?: string;
-  content?: string;
-}
-
-export interface CreateNoteData {
-  title: string;
-  content: string;
-}
-
-// Тип для createNote
 export interface CreateNotePayload {
   title: string;
   content: string;
