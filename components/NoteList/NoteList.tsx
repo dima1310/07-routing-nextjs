@@ -22,6 +22,7 @@ export default function NoteList({ notes }: NoteListProps) {
 
   const handleDelete = (id: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     if (window.confirm("Delete this note? This action cannot be undone.")) {
       removeNote(id);
     }

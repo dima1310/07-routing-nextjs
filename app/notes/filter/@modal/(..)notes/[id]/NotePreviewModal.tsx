@@ -35,7 +35,7 @@ export default function NotePreviewModal({ noteId }: NotePreviewModalProps) {
     <Modal onClose={handleClose}>
       <div className={css.container}>
         {isLoading && <p>Loading note...</p>}
-        
+
         {error && (
           <div className={css.error}>
             <p>Could not load note details.</p>
@@ -55,3 +55,6 @@ export default function NotePreviewModal({ noteId }: NotePreviewModalProps) {
           </div>
         )}
       </div>
+    </Modal>
+  );
+}
