@@ -6,7 +6,7 @@ import {
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
 import SidebarNotes from "../@sidebar/page";
-import css from "./FilterPage.module.css";
+import css from "./NotesPage.module.css";
 
 export default async function FilterPage({
   params,
