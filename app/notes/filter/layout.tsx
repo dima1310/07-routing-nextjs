@@ -1,4 +1,4 @@
-import css from "./layout.module.css";
+import css from "./FilterLayout.module.css";
 
 export default function FilterLayout({
   children,
