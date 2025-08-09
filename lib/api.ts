@@ -50,8 +50,9 @@ export async function createNote(payload: CreateNotePayload): Promise<Note> {
   return response.data;
 }
 
-export async function deleteNote(id: number | string): Promise<void> {
-  await api.delete(`/notes/${id}`);
+export async function deleteNote(id: number | string): Promise<Note> {
+  const response = await api.delete<Note>(`/notes/${id}`);
+  return response.data;
 }
 
 export async function fetchNoteById(id: number | string): Promise<Note> {

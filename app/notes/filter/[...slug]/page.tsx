@@ -5,8 +5,6 @@ import {
 } from "@tanstack/react-query";
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
-import SidebarNotes from "../@sidebar/page";
-import css from "./NotesPage.module.css";
 
 export default async function FilterPage({
   params,
@@ -18,21 +16,20 @@ export default async function FilterPage({
 
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
+  // Передвибираємо дані нотаток
+  const initialData = await queryClient.fetchQuery({
     queryKey: ["notes", 1, "", tag],
-    queryFn: () => fetchNotes({ tag }),
+    queryFn: () =>
+      fetchNotes({
+        page: 1,
+        search: "",
+        tag: tag === "All" ? undefined : tag,
+      }),
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className={css.layout}>
-        <aside className={css.sidebar}>
-          <SidebarNotes />
-        </aside>
-        <main className={css.main}>
-          <NotesClient tag={tag} />
-        </main>
-      </div>
+      <NotesClient tag={tag} initialData={initialData} />
     </HydrationBoundary>
   );
 }

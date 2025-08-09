@@ -21,6 +21,7 @@ export default function NotePreviewModal({ noteId }: NotePreviewModalProps) {
     queryKey: ["note", noteId],
     queryFn: () => fetchNoteById(noteId),
     enabled: !!noteId,
+    refetchOnMount: false, // Додано для запобігання повторних запитів передвибраних даних
   });
 
   const handleClose = () => {

@@ -14,9 +14,10 @@ import css from "./NotesPage.module.css";
 
 interface NotesClientProps {
   tag: string;
+  initialData: FetchNotesResponse;
 }
 
-export default function NotesClient({ tag }: NotesClientProps) {
+export default function NotesClient({ tag, initialData }: NotesClientProps) {
   const queryClient = useQueryClient();
 
   const [page, setPage] = useState(1);
@@ -33,6 +34,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
         search: debouncedSearch,
         tag: tag === "All" ? undefined : tag,
       }),
+    initialData: page === 1 && debouncedSearch === "" ? initialData : undefined,
     placeholderData: () => ({
       notes: [],
       totalPages: 1,
