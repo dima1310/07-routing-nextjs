@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { fetchNoteById } from "@/lib/api";
-import NotePreviewModal from "./NotePreviewModal";
+import NotePreviewModal from "./NotePreview.client";
 
 export default async function NoteModal({
   params,
